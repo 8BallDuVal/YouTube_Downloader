@@ -12,8 +12,9 @@ def mp4(url, directory):
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         try:
             ydl.download([url])
-        except Exception:
-            print('\nUnable to download video as an MP4 due to the error message above.')
+        except Exception as e:
+            msg = 'Unable to download video as an MP3 due to the error message above.'
+            sg.popup(str(e),msg)
 
 # Saving the Youtube Video as an MP3
 def mp3(url, directory):
@@ -29,8 +30,9 @@ def mp3(url, directory):
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         try:
             ydl.download([url])
-        except Exception:
-            print('\nUnable to download video as an MP3 due to the error message above.')
+        except Exception as e:
+            msg = 'Unable to download video as an MP3 due to the error message above.'
+            sg.popup(str(e),msg)
 
 sg.theme('DarkAmber')	# Add a touch of color
 # All the stuff inside your window.
@@ -43,6 +45,10 @@ window = sg.Window("Daniel's YouTube Downloader", layout)
 
 event, values = window.read()
 # Event Loop to process "events" and get the "values" of the inputs
+# event means the 'Convert to MP3' or 'Convert to MP4' button have been pressed
+# value[0] is URL and value[1] is directory
+# print('URL:' + url)
+# print('Directory:' + directory)
 while True:
     event, values = window.read()
     url = values[0]
@@ -50,12 +56,7 @@ while True:
     if event in (None, 'Exit'):	# if user closes window or presses Exit
         break
     elif event in ('Convert to MP3'): #if the user clicks the "output folder" button
-        #print(f'You clicked {event}')
-        #print(f'You chose URL: {values[0]} \nand Directory: {values[1]}') #need to add a /
         mp3(url,directory)
     elif event in ('Convert to MP4'):
         mp4(url,directory)
-
-
-
 window.close()
