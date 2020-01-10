@@ -1,7 +1,7 @@
 # YouTube_Downloader
 Download YouTube Videos to MP3 or MP4 using this program! 
 
-Simply download the "YouTube Downloader.exe" file and follow the instructions! The source code for this executable is "downloaderGUI.py". ***To use this program for MP3 files, see the note below.
+Simply download the "YouTube Downloader.exe" file and follow the instructions (the source code for this executable is "downloaderGUI.py")! ***To use this program for MP3 files, see the note below.
 
 Instructions on how to use "yt_downloader_CLI.exe" (source code for this executable is "downloader.py"):
 1. Copy an entire Youtube URL and paste it into the program, then hit Enter.
